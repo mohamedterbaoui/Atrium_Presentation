@@ -7,11 +7,11 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
 
-    <title>reveal.js</title>
+    <title>Présentation - Atrium</title>
 
     <link rel="stylesheet" href="dist/reset.css" />
     <link rel="stylesheet" href="dist/reveal.css" />
-    <link rel="stylesheet" href="dist/theme/black.css" />
+    <link rel="stylesheet" href="dist/theme/dracula.css" />
 
     <!-- Theme used for syntax highlighted code -->
     <link rel="stylesheet" href="plugin/highlight/monokai.css" />
@@ -19,12 +19,319 @@
   <body>
     <div class="reveal">
       <div class="slides">
+        <!-- Slide 1: Page de titre -->
         <section>
-          <section>slide1.1</section>
-          <section>slide 1.2</section>
+          <img
+            src="./assets/logo.png"
+            alt="logo_atrmium"
+            style="height: 150px"
+          />
+          <h3>Plateforme de partage d'opportunités académiques</h3>
+          <p><strong>Mohamed Terbaoui & Joseph Finan</strong></p>
+          <p><small>Superviseur: Louis-Edouard Lafontant</small></p>
         </section>
 
-        <section>Slide 2</section>
+        <section>
+          <h2>Plan</h2>
+          <ol style="font-size: 0.9em; line-height: 1.8">
+            <li>Contexte et problématique</li>
+            <li>Objectifs et utilisateurs</li>
+            <li>Architecture et technologies</li>
+            <li>Structure de la base de données</li>
+            <li>Fonctionnalités implémentées</li>
+            <li>Processus de développement</li>
+            <li>Démonstration en direct</li>
+            <li>Tests utilisateurs</li>
+            <li>Défis et solutions</li>
+            <li>Résultats et perspectives</li>
+            <li>Conclusion</li>
+          </ol>
+        </section>
+
+        <!-- Slide 2: Contexte et problématique -->
+        <section>
+          <section>
+            <h2>Contexte</h2>
+            <ul>
+              <li>
+                Les étudiants cherchent des opportunités (stages, recherche,
+                projets)
+              </li>
+              <li>Les professeurs disposent d'informations dispersées</li>
+              <li>Pas d'outil centralisé pour faciliter la mise en relation</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Problématique</h2>
+            <ul>
+              <li>Canaux de communication multiples et fragmentés</li>
+              <li>Difficulté d'accès aux opportunités</li>
+              <li>
+                Manque de visibilité sur les disponibilités des professeurs
+              </li>
+            </ul>
+          </section>
+        </section>
+
+        <!-- Slide 3: Objectifs du projet -->
+        <section>
+          <h2>Objectifs</h2>
+          <ul>
+            <li>Créer un <strong>hub centralisé</strong> d'informations</li>
+            <li>Faciliter la recherche d'opportunités pour les étudiants</li>
+            <li>
+              Permettre aux professeurs de publier leurs opportunités facilement
+            </li>
+            <li>
+              Favoriser la communication directe (pas de gestion de
+              candidatures)
+            </li>
+          </ul>
+        </section>
+
+        <!-- Slide 4: Utilisateurs cibles -->
+        <section>
+          <h2>Utilisateurs</h2>
+          <div
+            style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px"
+          >
+            <div>
+              <h3 style="color: burlywood">Étudiants</h3>
+              <p style="font-size: xx-large">
+                Recherchent et consultent les opportunités
+              </p>
+            </div>
+            <div>
+              <h3 style="color: burlywood">Professeurs</h3>
+              <p style="font-size: xx-large">
+                Publient opportunités et disponibilités
+              </p>
+            </div>
+            <div>
+              <h3 style="color: burlywood">Administration</h3>
+              <p style="font-size: xx-large">
+                Matching entre étudiants et professeurs
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5: Architecture -->
+        <section>
+          <section>
+            <h2>Architecture du système</h2>
+            <p>Architecture client-serveur moderne</p>
+            <img
+              src="./assets/architecture.png"
+              alt="Architecture"
+              style="max-height: 400px"
+            />
+          </section>
+
+          <section>
+            <h2>Stack technologique</h2>
+            <table style="font-size: 0.8em">
+              <tr>
+                <th>Technologie</th>
+                <th>Rôle</th>
+              </tr>
+              <tr>
+                <td>React + TypeScript</td>
+                <td>Frontend modulaire et typé</td>
+              </tr>
+              <tr>
+                <td>TailwindCSS</td>
+                <td>Stylisation moderne</td>
+              </tr>
+              <tr>
+                <td>Supabase</td>
+                <td>Backend (Auth + DB + Storage)</td>
+              </tr>
+              <tr>
+                <td>React Router</td>
+                <td>Navigation</td>
+              </tr>
+            </table>
+          </section>
+        </section>
+
+        <!-- Slide 6: Base de données -->
+        <section>
+          <section>
+            <h2>Structure de la base de données</h2>
+            <p>PostgreSQL via Supabase avec modèle Entité-Association</p>
+          </section>
+          <section
+            style="
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              margin-top: 0;
+            "
+          >
+            <img
+              src="./assets/BDD.png"
+              alt="base_de_donnees"
+              style="max-height: 700px"
+            />
+          </section>
+          <section>
+            <h2>Choix de design</h2>
+            <ul>
+              <li>
+                <strong>Supabase</strong>: Auth intégrée + RLS (Row Level
+                Security)
+              </li>
+              <li>
+                <strong>Tables principales</strong>: Étudiants, Professeurs,
+                Opportunités
+              </li>
+              <li>
+                <strong>Relations</strong>: Liens entre utilisateurs et
+                opportunités
+              </li>
+              <li>
+                <strong>Sécurité</strong>: Policies pour contrôler l'accès aux
+                données
+              </li>
+              <li>
+                <strong>Scalabilité</strong>: Structure modulaire permettant
+                l'évolution
+              </li>
+            </ul>
+          </section>
+        </section>
+
+        <!-- Slide 7: Fonctionnalités principales -->
+        <section>
+          <h2>Fonctionnalités implémentées</h2>
+          <ul>
+            <li>Authentification (signup/login) sécurisée</li>
+            <li>Gestion des profils (étudiants et professeurs)</li>
+            <li>Publication et modification d'opportunités</li>
+            <li>Recherche et filtrage avancés</li>
+            <li>Interface responsive (mobile, tablette, desktop)</li>
+            <li>Contact direct via email</li>
+          </ul>
+        </section>
+
+        <!-- Slide 8: Développement itératif -->
+        <section>
+          <h2>Processus de développement</h2>
+          <ul>
+            <li>
+              <strong>Semaines 1-4</strong>: Analyse et prototypage (Figma)
+            </li>
+            <li>
+              <strong>Semaines 5-7</strong>: Conception BD et architecture
+            </li>
+            <li>
+              <strong>Semaines 8-9</strong>: Setup technique et première
+              implémentation
+            </li>
+            <li><strong>Semaines 10-12</strong>: Fonctionnalités complètes</li>
+            <li>
+              <strong>Semaine 13</strong>: Tests utilisateurs et finalisation
+            </li>
+          </ul>
+        </section>
+
+        <!-- Slide 9: Démonstration -->
+        <section>
+          <h2>Démonstration</h2>
+          <p>Flow utilisateur</p>
+          <p><em>(Démo en direct de l'application déployée)</em></p>
+          <a
+            href="https://atrium-i17h.onrender.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >plateforme Atrium</a
+          >
+        </section>
+
+        <!-- Slide 10: Défis rencontrés -->
+        <section>
+          <h2>Défis techniques</h2>
+          <ul>
+            <li>Maîtrise de Supabase (RLS, triggers, policies)</li>
+            <li>Synchronisation auth.users avec tables personnalisées</li>
+            <li>Optimisation du responsive design</li>
+            <li>Structure modulaire du code React</li>
+          </ul>
+        </section>
+
+        <!-- Slide 11: Résultats -->
+        <section>
+          <h2>Résultats</h2>
+          <ul>
+            <li>Application web fonctionnelle et déployée</li>
+            <li>Bonne interface visuelle mais perfectible</li>
+            <li>Architecture évolutive et maintenable</li>
+            <li>Objectifs initiaux atteints</li>
+          </ul>
+        </section>
+
+        <!-- Slide 11: Tests utilisateurs -->
+        <section>
+          <section>
+            <h2>Tests utilisateurs</h2>
+            <p>Retours et suggestions collectés</p>
+          </section>
+
+          <section>
+            <h2>Améliorations suggérées</h2>
+            <ul style="font-size: 0.85em">
+              <li>
+                Bouton pour remonter rapidement quand beaucoup d'opportunités
+              </li>
+              <li>Tri par pertinence selon les compétences de l'étudiant</li>
+              <li>Ajout d'images aux opportunités</li>
+              <li>Filtres par type d'opportunité</li>
+              <li>Meilleur feedback lors de mises à jour de profil</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Problèmes identifiés</h2>
+            <ul style="font-size: 0.85em">
+              <li>Ralentissements lors du chargement des profils</li>
+              <li>Erreurs silencieuses (ex: cours non ajoutés sans message)</li>
+              <li>Pas de vérification d'email</li>
+            </ul>
+          </section>
+        </section>
+
+        <!-- Slide 12: Perspectives futures -->
+        <section>
+          <h2>Prochaines Fonctionnalités</h2>
+          <ul style="font-size: xx-large">
+            <li>Système de notifications</li>
+            <li>Intégration API externes (Teams)</li>
+            <li>Statistiques et analytics pour les professeurs</li>
+            <li>Système de favoris pour les étudiants</li>
+            <li>Recommandations personnalisées</li>
+            <li>Gestion automatique de l'archivage des opportunités</li>
+            <li>
+              Système de matching pour les admin ainsi que pour les professeurs
+            </li>
+          </ul>
+        </section>
+
+        <!-- Slide 13: Conclusion -->
+        <section>
+          <h2>Conclusion</h2>
+          <div>
+            <p>
+              Ce projet nous a offert une expérience concrète du cycle de
+              développement d'une application web moderne, du prototypage
+              initial à la validation utilisateur.
+            </p>
+          </div>
+          <br />
+          <p><strong>Merci pour votre attention!</strong></p>
+          <p>Questions?</p>
+        </section>
       </div>
     </div>
 
