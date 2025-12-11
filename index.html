@@ -34,12 +34,10 @@
         <section>
           <h2>Plan</h2>
           <ol style="font-size: 0.9em; line-height: 1.8">
-            <li>Contexte et problématique</li>
-            <li>Objectifs et utilisateurs</li>
+            <li>Introduction</li>
             <li>Architecture et technologies</li>
             <li>Structure de la base de données</li>
             <li>Fonctionnalités implémentées</li>
-            <li>Processus de développement</li>
             <li>Démonstration en direct</li>
             <li>Tests utilisateurs</li>
             <li>Défis et solutions</li>
@@ -59,6 +57,14 @@
               </li>
               <li>Les professeurs disposent d'informations dispersées</li>
               <li>Pas d'outil centralisé pour faciliter la mise en relation</li>
+              <li>
+                Informations transmises de bouche à oreille ou via des
+                plateformes informelles (ex: Discord)
+              </li>
+              <li>
+                Alternative (actuellement pour les opportunités): LinkedIn,
+                Indeed, Alerte-emploi
+              </li>
             </ul>
           </section>
 
@@ -93,9 +99,7 @@
         <!-- Slide 4: Utilisateurs cibles -->
         <section>
           <h2>Utilisateurs</h2>
-          <div
-            style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px"
-          >
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px">
             <div>
               <h3 style="color: burlywood">Étudiants</h3>
               <p style="font-size: xx-large">
@@ -108,12 +112,6 @@
                 Publient opportunités et disponibilités
               </p>
             </div>
-            <div>
-              <h3 style="color: burlywood">Administration</h3>
-              <p style="font-size: xx-large">
-                Matching entre étudiants et professeurs
-              </p>
-            </div>
           </div>
         </section>
 
@@ -121,11 +119,11 @@
         <section>
           <section>
             <h2>Architecture du système</h2>
-            <p>Architecture client-serveur moderne</p>
+            <p><strong>Modèle C4 niveau 2</strong></p>
             <img
               src="./assets/architecture.png"
               alt="Architecture"
-              style="max-height: 400px"
+              style="max-height: 500px"
             />
           </section>
 
@@ -216,27 +214,6 @@
           </ul>
         </section>
 
-        <!-- Slide 8: Développement itératif -->
-        <section>
-          <h2>Processus de développement</h2>
-          <ul>
-            <li>
-              <strong>Semaines 1-4</strong>: Analyse et prototypage (Figma)
-            </li>
-            <li>
-              <strong>Semaines 5-7</strong>: Conception BD et architecture
-            </li>
-            <li>
-              <strong>Semaines 8-9</strong>: Setup technique et première
-              implémentation
-            </li>
-            <li><strong>Semaines 10-12</strong>: Fonctionnalités complètes</li>
-            <li>
-              <strong>Semaine 13</strong>: Tests utilisateurs et finalisation
-            </li>
-          </ul>
-        </section>
-
         <!-- Slide 9: Démonstration -->
         <section>
           <h2>Démonstration</h2>
@@ -306,15 +283,12 @@
         <section>
           <h2>Prochaines Fonctionnalités</h2>
           <ul style="font-size: xx-large">
-            <li>Système de notifications</li>
-            <li>Intégration API externes (Teams)</li>
-            <li>Statistiques et analytics pour les professeurs</li>
-            <li>Système de favoris pour les étudiants</li>
-            <li>Recommandations personnalisées</li>
-            <li>Gestion automatique de l'archivage des opportunités</li>
             <li>
               Système de matching pour les admin ainsi que pour les professeurs
             </li>
+            <li>Gestion automatique de l'archivage des opportunités</li>
+            <li>Système de favoris pour les étudiants</li>
+            <li>Intégration API externes (Teams)</li>
           </ul>
         </section>
 
